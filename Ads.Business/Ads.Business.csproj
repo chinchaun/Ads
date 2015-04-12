@@ -4,7 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+<<<<<<< HEAD
     <ProjectGuid>{AFC05E2D-6682-48B3-B574-88EA429966D5}</ProjectGuid>
+=======
+    <ProjectGuid>{4CCB8AD2-DE44-487D-885E-85ED111DFA59}</ProjectGuid>
+>>>>>>> 6917dc52acd55492dc54d4302bc06d59fc8b4cef
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Ads.Business</RootNamespace>
@@ -39,7 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="Class1.cs" />
+=======
+>>>>>>> 6917dc52acd55492dc54d4302bc06d59fc8b4cef
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
