@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Ads.Model
 {
-    public abstract class BaseModel
+    public class AdBase : BaseModel
     {
-        public int id { get; set; }
+        public string description { get; set; }
+        public DateTime creationTime { get; set; }
     }
 }
