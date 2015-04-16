@@ -3,33 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ads.Model;
 
 namespace Ads.DataAcces.Repositories
 {
-    public class RepositoryBase<T> : IRepository<T> where T : class
+    public class RepositoryBase<T> : AdBase, IRepository<T> where T : class
     {
+        private readonly IDbContext _dbContext;
 
-        public T ById(int id)
+        public RepositoryBase(IDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
+        public virtual T ById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public bool Add(T entity)
+        public virtual bool Add(T entity)
         {
             throw new NotImplementedException();
         }
 
-        public bool SaveOrUpdate(T Entity)
+        public virtual bool SaveOrUpdate(T Entity)
         {
             throw new NotImplementedException();
         }
 
-        public bool Delete(T entity)
+        public virtual bool Delete(T entity)
         {
             throw new NotImplementedException();
         }
 
-        public IQueryable<T> Query()
+        public virtual IQueryable<T> Query()
         {
             throw new NotImplementedException();
         }

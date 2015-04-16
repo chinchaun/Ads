@@ -28,9 +28,32 @@ namespace Ads.EntityFrameWork
 
             base.OnModelCreating(modelBuilder);
 
-            //modelBuilder.Configurations.Add(new AdBaseMapping());
-            //modelBuilder.Configurations.Add(new AuthorMapping());
-            //modelBuilder.Configurations.Add(new BookStateMapping());
+            modelBuilder.Configurations.Add(new AdBaseMapping());
+
+        }
+
+        public void GetById<T>(int id) { 
+        
+        }
+
+        public void Add<T>(T entity) where T : class
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete<T>(T entity) where T : class
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SaveOrUpdate()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IQueryable<T> Query<T>() where T : class
+        {
+            throw new NotImplementedException();
         }
     }
 }

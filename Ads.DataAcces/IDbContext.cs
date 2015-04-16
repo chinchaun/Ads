@@ -8,6 +8,7 @@ namespace Ads.DataAcces
 {
     public interface IDbContext
     {
+        void GetById<T>(int id);
         void Add<T>(T entity) where T : class;
         void Delete<T>(T entity) where T : class;
         void SaveOrUpdate();

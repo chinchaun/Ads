@@ -39,7 +39,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstracts\IAdBaseBusiness.cs" />
+    <Compile Include="AdBaseBusiness.cs" />
+    <Compile Include="BusinessBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ads.Model\Ads.Model.csproj">
+      <Project>{00b19963-a26e-4fd6-b154-3b087b658096}</Project>
+      <Name>Ads.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ads.Service\Ads.Service.csproj">
+      <Project>{8e86a9fc-6fdd-40a0-bfb2-628b4c8d7c05}</Project>
+      <Name>Ads.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -6,12 +6,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Ads.Model;
 using Ads.DataTransferObject;
+using System.Data.Entity.ModelConfiguration;
 
 namespace Ads.EntityFrameWork.Mapping
 {
-    public class AdBaseMapping
+    public class AdBaseMapping : EntityTypeConfiguration<AdBase>
     {
-        public  AdBaseMapping() {
+        public AdBaseMapping() {
             Mapper.CreateMap<AdsBaseDto, AdBase>();
         }
     }
