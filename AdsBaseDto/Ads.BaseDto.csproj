@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7223630B-CBA6-4670-AAD6-248EE50B7373}</ProjectGuid>
+    <ProjectGuid>{A19E9AFF-AFE2-41ED-8E7D-AF657CA2270E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ads.DataAcces</RootNamespace>
-    <AssemblyName>Ads.DataAcces</AssemblyName>
+    <RootNamespace>AdsBaseDto</RootNamespace>
+    <AssemblyName>AdsBaseDto</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,11 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IDbContext.cs" />
-    <Compile Include="IUnitOfWork.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\IRepository.cs" />
-    <Compile Include="Repositories\RepositoryBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

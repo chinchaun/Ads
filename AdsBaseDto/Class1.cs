@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ads.Model
+namespace AdsBaseDto
 {
-    public abstract class BaseModel
+    public class Class1
     {
-        public int id { get; set; }
     }
 }

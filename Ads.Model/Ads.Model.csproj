@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdBase.cs" />
     <Compile Include="BaseModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
