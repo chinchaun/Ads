@@ -6,6 +6,7 @@ namespace Ads.DataAcces.Repositories
     {
         T ById(int id);
         bool Add(T entity);
+        bool SaveOrUpdate(T Entity);
         bool Delete(T entity);
         IQueryable<T> Query();
     }
