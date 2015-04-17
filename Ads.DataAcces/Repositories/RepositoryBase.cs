@@ -17,7 +17,8 @@ namespace Ads.DataAcces.Repositories
         }
 
         public virtual T ById(int id)
-        {
+        {          
+            //adwdadwa
             throw new NotImplementedException();
         }
 
