@@ -73,6 +73,8 @@
   <ItemGroup>
     <Folder Include="app\" />
     <Folder Include="App_Start\" />
+    <Folder Include="Controllers\" />
+    <Folder Include="Infrastructure\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
