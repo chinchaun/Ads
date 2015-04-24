@@ -18,7 +18,7 @@ namespace Ads.Service.Implementations
         }
 
         public AdBase GetById(int id){
-            AdBase Ad = adbaseRepository.ById(id);
+            AdBase Ad = adbaseRepository.GetById(id);
             return Ad;
         }
     }

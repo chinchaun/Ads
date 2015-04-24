@@ -7,19 +7,18 @@ using Ads.Model;
 
 namespace Ads.DataAcces.Repositories
 {
-    public class RepositoryBase<T> : AdBase, IRepository<T> where T : class
+    public class RepositoryBase<T> : IRepository<T> where T : class
     {
-        private readonly IDbContext _dbContext;
+        private readonly IContext dbContext;
 
-        public RepositoryBase(IDbContext dbContext)
+        public RepositoryBase(IContext dbContext)
         {
-            _dbContext = dbContext;
+            this.dbContext = dbContext;
         }
 
-        public virtual T ById(int id)
-        {          
-            //adwdadwa
-            throw new NotImplementedException();
+        public virtual T GetById(int id)
+        {
+            return this.dbContext.GetById<T>(id);
         }
 
         public virtual bool Add(T entity)
@@ -38,6 +37,31 @@ namespace Ads.DataAcces.Repositories
         }
 
         public virtual IQueryable<T> Query()
+        {
+            throw new NotImplementedException();
+        }
+
+        T IRepository<T>.GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        bool IRepository<T>.Add(T entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        bool IRepository<T>.SaveOrUpdate(T Entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        bool IRepository<T>.Delete(T entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        IQueryable<T> IRepository<T>.Query()
         {
             throw new NotImplementedException();
         }

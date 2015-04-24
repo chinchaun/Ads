@@ -9,7 +9,7 @@ namespace Ads.DataAcces.Repositories
 {
     public class AdBaseRepository : RepositoryBase<AdBase>
     {
-        public AdBaseRepository(IDbContext context)
+        public AdBaseRepository(IContext context)
             : base(context) { }
     }
 }

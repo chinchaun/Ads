@@ -1,21 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
 using Ads.DataAcces;
 using System.Data.Entity;
 using Ads.EntityFrameWork.Mapping;
+using System.Configuration;
 using MySql.Data.Entity;
+using Ads.Model;
 
 namespace Ads.EntityFrameWork
 {
     [DbConfigurationType(typeof(MySqlEFConfiguration))]
-    public class MySQLEntityContext : DbContext, IDbContext
+    public class MySQLEntityContext : DbContext, IContext
     {
         public MySQLEntityContext()
-            : base("name=MySQLConnectionString")
+            : base(ConfigurationManager.ConnectionStrings["MySQLConnectionString"].ToString())
         {
         }
 
@@ -32,8 +30,11 @@ namespace Ads.EntityFrameWork
 
         }
 
-        public void GetById<T>(int id) { 
-        
+        public virtual DbSet<AdBase> AdBases { get; set; }
+
+        public T GetById<T>(int id) where T : class {
+
+            return base.Set<T>().Find(id);
         }
 
         public void Add<T>(T entity) where T : class
