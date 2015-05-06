@@ -9,17 +9,18 @@ using Ads.DataAcces.Repositories;
 
 namespace Ads.Service.Implementations
 {
-   public class AdBaseService : IAdBaseService {
+   public class AdBaseService : IAdBaseService 
+   {
 
-        private readonly IRepository<AdBase> adbaseRepository;
+       private readonly IRepository<AdBase> AdBaseRepository;
 
         public AdBaseService(IRepository<AdBase> AdBaseRepository){
-             adbaseRepository = AdBaseRepository;
+            this.AdBaseRepository = AdBaseRepository;
         }
 
         public AdBase GetById(int id){
-            AdBase Ad = adbaseRepository.GetById(id);
-            return Ad;
+            AdBase ad = AdBaseRepository.GetById(id);
+            return ad;
         }
     }
 }

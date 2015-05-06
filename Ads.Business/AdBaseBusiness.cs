@@ -14,9 +14,7 @@ namespace Ads.Business
        public AdBaseBusiness(IAdBaseService service) : base(service) { }
 
        public AdBase GetById(int id){
-           
-           AdBase Ad = new AdBase();
-           return Ad;
+           return base.ServiceInstance.GetById(id);
        }
    }
 }

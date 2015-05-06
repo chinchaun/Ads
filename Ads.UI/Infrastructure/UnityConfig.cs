@@ -17,25 +17,25 @@ namespace Ads.UI.Infrastructure
     {
         private static IUnityContainer unityContainer;
 
-        //public static IUnityContainer GetConfiguredContainer()
-        //{
-        //    if (unityContainer != null)
-        //        return unityContainer;
-
-        //    unityContainer = new UnityContainer();
-        //    RegisterTypes();
-
-        //    return unityContainer;
-        //}
-
-        public static void RegisterComponents()
+        public static IUnityContainer GetConfiguredContainer()
         {
-            unityContainer = new UnityContainer();
+            if (unityContainer != null)
+                return unityContainer;
 
+            unityContainer = new UnityContainer();
             RegisterTypes();
 
-            GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(unityContainer);
+            return unityContainer;
         }
+
+        //public static void RegisterComponents()
+        //{
+        //    unityContainer = new UnityContainer();
+
+        //    RegisterTypes();
+
+        //    GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(unityContainer);
+        //}
 
         private static void RegisterTypes() {
             RegisterContext();
