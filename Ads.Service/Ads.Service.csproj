@@ -39,8 +39,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\IAdBaseService.cs" />
-    <Compile Include="Implementations\AdBaseService.cs" />
+    <Compile Include="Contracts\IBaseService.cs" />
+    <Compile Include="Contracts\IPacienteService.cs" />
+    <Compile Include="Implementations\BaseService.cs" />
+    <Compile Include="Implementations\PacienteService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -50,6 +52,10 @@
     <ProjectReference Include="..\Ads.DataAcces\Ads.DataAcces.csproj">
       <Project>{7223630b-cba6-4670-aad6-248ee50b7373}</Project>
       <Name>Ads.DataAcces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ads.EntityFrameWork\Ads.EntityFrameWork.csproj">
+      <Project>{5c56c5fd-2b55-4f4c-b58e-acaca8960701}</Project>
+      <Name>Ads.EntityFrameWork</Name>
     </ProjectReference>
     <ProjectReference Include="..\Ads.Model\Ads.Model.csproj">
       <Project>{00b19963-a26e-4fd6-b154-3b087b658096}</Project>

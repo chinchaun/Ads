@@ -56,8 +56,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstracts\IAdBaseBusiness.cs" />
-    <Compile Include="AdBaseBusiness.cs" />
+    <Compile Include="Abstracts\IPacienteBusiness.cs" />
+    <Compile Include="PacienteBusiness.cs" />
     <Compile Include="BusinessBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

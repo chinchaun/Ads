@@ -46,20 +46,22 @@ namespace Ads.UI.Infrastructure
 
         private static void RegisterContext()
         {
-            unityContainer.RegisterType<IContext, MySQLEntityContext>();
+            unityContainer.RegisterType<IContext, dialisisEntities>();
         }
 
         private static void RegisterRepositories() {
-            unityContainer.RegisterType<IRepository<AdBase> ,RepositoryBase<AdBase>>(new InjectionConstructor(unityContainer.Resolve<IContext>()));
+            unityContainer.RegisterType<IRepository<Base> ,RepositoryBase<Base>>(new InjectionConstructor(unityContainer.Resolve<IContext>()));
+            unityContainer.RegisterType<IRepository<Ads.Model.paciente>, RepositoryBase<Ads.Model.paciente>>(new InjectionConstructor(unityContainer.Resolve<IContext>()));
 
         }
 
         private static void RegisterServices() { 
-            unityContainer.RegisterType<IAdBaseService, AdBaseService>();
+            //unityContainer.RegisterType<IBaseService, BaseService>();
+            unityContainer.RegisterType<IPacienteService, PacienteService>();
         }
 
         private static void RegisterBusiness() {
-            unityContainer.RegisterType<IAdBaseBusiness, AdBaseBusiness>(new InjectionConstructor(unityContainer.Resolve<IAdBaseService>()));
+            unityContainer.RegisterType<IPacienteBusiness, PacienteBusiness>(new InjectionConstructor(unityContainer.Resolve<IPacienteService>()));
         }
 
 

@@ -1,0 +1,1072 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dialisisModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="accesovascular">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_localizacion" Type="int" />
+          <Property Name="id_tipo" Type="int" />
+          <Property Name="id_paciente" Type="int" Nullable="false" />
+          <Property Name="fecha" Type="date" Nullable="false" />
+          <Property Name="otros" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="estudios">
+          <Key>
+            <PropertyRef Name="cod_estudio" />
+          </Key>
+          <Property Name="cod_estudio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="desc_estudio" Type="varchar" MaxLength="40" />
+          <Property Name="estado_estudio" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="localizacionanastomosis">
+          <Key>
+            <PropertyRef Name="cod_localizacion" />
+          </Key>
+          <Property Name="cod_localizacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="60" Nullable="false" />
+        </EntityType>
+        <EntityType Name="motivobaja">
+          <Key>
+            <PropertyRef Name="idmotivobaja" />
+          </Key>
+          <Property Name="idmotivobaja" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="45" Nullable="false" />
+        </EntityType>
+        <EntityType Name="obrasocial">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="razonSocial" Type="varchar" MaxLength="45" />
+          <Property Name="razonSocialAbrev" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="estado" Type="bool" Nullable="false" />
+        </EntityType>
+        <EntityType Name="observaciones">
+          <Key>
+            <PropertyRef Name="cod_paciente" />
+            <PropertyRef Name="fecha" />
+          </Key>
+          <Property Name="cod_paciente" Type="int" Nullable="false" />
+          <Property Name="descripcion" Type="longtext" />
+          <Property Name="fecha" Type="datetime" Precision="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="paciente_ioma">
+          <Key>
+            <PropertyRef Name="nroreg" />
+            <PropertyRef Name="cod_paciente" />
+          </Key>
+          <Property Name="nroreg" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cod_paciente" Type="int" Nullable="false" />
+          <Property Name="fecha" Type="date" Nullable="false" />
+          <Property Name="presentacion" Type="int" Nullable="false" />
+          <Property Name="internaciones" Type="text" />
+          <Property Name="complicaciones" Type="text" />
+          <Property Name="tranfuciones" Type="text" />
+          <Property Name="accesovascular" Type="text" />
+          <Property Name="serologia" Type="text" />
+          <Property Name="cirugias" Type="text" />
+          <Property Name="medicacion" Type="text" />
+          <Property Name="estadoactual" Type="longtext" />
+          <Property Name="pesoSeco" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="paciente_pami">
+          <Key>
+            <PropertyRef Name="nroreg" />
+            <PropertyRef Name="cod_paciente" />
+          </Key>
+          <Property Name="nroreg" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cod_paciente" Type="int" Nullable="false" />
+          <Property Name="fecha" Type="date" Nullable="false" />
+          <Property Name="transfusiones" Type="text" />
+          <Property Name="estudios" Type="text" />
+          <Property Name="farmacologicos" Type="text" />
+          <Property Name="internaciones" Type="varchar" MaxLength="45" />
+          <Property Name="causa" Type="varchar" MaxLength="45" />
+          <Property Name="dias" Type="varchar" MaxLength="45" />
+          <Property Name="donde" Type="varchar" MaxLength="45" />
+          <Property Name="vascular" Type="text" />
+          <Property Name="semiologico_clinico" Type="longtext" />
+          <Property Name="pesoSeco" Type="varchar" MaxLength="20" />
+          <Property Name="diuresis" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="pacientes">
+          <Key>
+            <PropertyRef Name="cod_paciente" />
+          </Key>
+          <Property Name="cod_paciente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Apellido" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="obraSocial" Type="varchar" MaxLength="40" />
+          <Property Name="sexo" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="diabetes" Type="varchar" MaxLength="20" />
+          <Property Name="altura" Type="decimal" Precision="11" Scale="0" />
+          <Property Name="fechaNacimiento" Type="datetime" Precision="0" />
+          <Property Name="epo" Type="varchar" MaxLength="20" />
+          <Property Name="dosis" Type="int" />
+          <Property Name="estado" Type="varchar" MaxLength="20" />
+          <Property Name="nroObraSocial" Type="varchar" MaxLength="30" />
+          <Property Name="fechaPrimer" Type="datetime" Precision="0" />
+          <Property Name="etiologico" Type="text" />
+          <Property Name="incucai" Type="varchar" MaxLength="20" />
+          <Property Name="antecedente" Type="longtext" />
+          <Property Name="turno" Type="varchar" MaxLength="60" />
+          <Property Name="fechacreacionav" Type="date" />
+          <Property Name="fechaprimerusoav" Type="date" />
+          <Property Name="cod_anastomosis" Type="int" />
+          <Property Name="cod_localizacionanastomosis" Type="int" />
+          <Property Name="cantavanteriores" Type="int" />
+          <Property Name="fechaprimervida" Type="date" />
+          <Property Name="fechaprimeros" Type="date" />
+          <Property Name="codmotivobaja" Type="int" />
+          <Property Name="descmotivobaja" Type="varchar" MaxLength="45" />
+          <Property Name="fechabaja" Type="date" />
+          <Property Name="id_os" Type="int" />
+          <Property Name="domicilio" Type="varchar" MaxLength="45" />
+          <Property Name="localidad" Type="varchar" MaxLength="45" />
+          <Property Name="telefono" Type="varchar" MaxLength="45" />
+          <Property Name="grupo_sang" Type="varchar" MaxLength="45" />
+          <Property Name="cirugias_prev" Type="varchar" MaxLength="200" />
+          <Property Name="infeccionesUrinarias" Type="bool" />
+          <Property Name="diabetes_fechaDesde" Type="date" />
+          <Property Name="hematuria" Type="bool" />
+          <Property Name="litasisRenal" Type="bool" />
+          <Property Name="nonturia" Type="bool" />
+          <Property Name="hipertension" Type="bool" />
+          <Property Name="hip_tiempoevol" Type="date" />
+          <Property Name="hip_tratamiento" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="pacientes_estudios">
+          <Key>
+            <PropertyRef Name="cod_estudio" />
+            <PropertyRef Name="cod_paciente" />
+            <PropertyRef Name="fecha" />
+          </Key>
+          <Property Name="cod_estudio" Type="int" Nullable="false" />
+          <Property Name="cod_paciente" Type="int" Nullable="false" />
+          <Property Name="fecha" Type="date" Nullable="false" />
+          <Property Name="resultado" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tipoanastomosis">
+          <Key>
+            <PropertyRef Name="cod_anastomosis" />
+          </Key>
+          <Property Name="cod_anastomosis" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="60" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vacuna_paciente">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_vacuna" Type="int" Nullable="false" />
+          <Property Name="id_paciente" Type="int" Nullable="false" />
+          <Property Name="fecha" Type="date" />
+          <Property Name="otros" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="vacunas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="45" Nullable="false" />
+          <Property Name="estado" Type="bool" Nullable="false" />
+        </EntityType>
+        <Association Name="cod_paciente_fk">
+          <End Role="pacientes" Type="Self.pacientes" Multiplicity="1" />
+          <End Role="paciente_ioma" Type="Self.paciente_ioma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacientes">
+              <PropertyRef Name="cod_paciente" />
+            </Principal>
+            <Dependent Role="paciente_ioma">
+              <PropertyRef Name="cod_paciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_anastomosis">
+          <End Role="tipoanastomosis" Type="Self.tipoanastomosis" Multiplicity="0..1" />
+          <End Role="pacientes" Type="Self.pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoanastomosis">
+              <PropertyRef Name="cod_anastomosis" />
+            </Principal>
+            <Dependent Role="pacientes">
+              <PropertyRef Name="cod_anastomosis" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_localizacion">
+          <End Role="localizacionanastomosis" Type="Self.localizacionanastomosis" Multiplicity="0..1" />
+          <End Role="pacientes" Type="Self.pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="localizacionanastomosis">
+              <PropertyRef Name="cod_localizacion" />
+            </Principal>
+            <Dependent Role="pacientes">
+              <PropertyRef Name="cod_localizacionanastomosis" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_motivobaja">
+          <End Role="motivobaja" Type="Self.motivobaja" Multiplicity="0..1" />
+          <End Role="pacientes" Type="Self.pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="motivobaja">
+              <PropertyRef Name="idmotivobaja" />
+            </Principal>
+            <Dependent Role="pacientes">
+              <PropertyRef Name="codmotivobaja" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_os">
+          <End Role="obrasocial" Type="Self.obrasocial" Multiplicity="0..1" />
+          <End Role="pacientes" Type="Self.pacientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="obrasocial">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="pacientes">
+              <PropertyRef Name="id_os" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk2_localizacion">
+          <End Role="localizacionanastomosis" Type="Self.localizacionanastomosis" Multiplicity="0..1" />
+          <End Role="accesovascular" Type="Self.accesovascular" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="localizacionanastomosis">
+              <PropertyRef Name="cod_localizacion" />
+            </Principal>
+            <Dependent Role="accesovascular">
+              <PropertyRef Name="id_localizacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk2_paciente">
+          <End Role="pacientes" Type="Self.pacientes" Multiplicity="1" />
+          <End Role="accesovascular" Type="Self.accesovascular" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacientes">
+              <PropertyRef Name="cod_paciente" />
+            </Principal>
+            <Dependent Role="accesovascular">
+              <PropertyRef Name="id_paciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk2_tipo">
+          <End Role="tipoanastomosis" Type="Self.tipoanastomosis" Multiplicity="0..1" />
+          <End Role="accesovascular" Type="Self.accesovascular" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoanastomosis">
+              <PropertyRef Name="cod_anastomosis" />
+            </Principal>
+            <Dependent Role="accesovascular">
+              <PropertyRef Name="id_tipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk3_paciente">
+          <End Role="pacientes" Type="Self.pacientes" Multiplicity="1" />
+          <End Role="vacuna_paciente" Type="Self.vacuna_paciente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacientes">
+              <PropertyRef Name="cod_paciente" />
+            </Principal>
+            <Dependent Role="vacuna_paciente">
+              <PropertyRef Name="id_paciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk3_vacuna">
+          <End Role="vacunas" Type="Self.vacunas" Multiplicity="1" />
+          <End Role="vacuna_paciente" Type="Self.vacuna_paciente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vacunas">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="vacuna_paciente">
+              <PropertyRef Name="id_vacuna" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="observaciones_codPaciente_fk">
+          <End Role="pacientes" Type="Self.pacientes" Multiplicity="1" />
+          <End Role="observaciones" Type="Self.observaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacientes">
+              <PropertyRef Name="cod_paciente" />
+            </Principal>
+            <Dependent Role="observaciones">
+              <PropertyRef Name="cod_paciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="paciente_pami_fk1">
+          <End Role="pacientes" Type="Self.pacientes" Multiplicity="1" />
+          <End Role="paciente_pami" Type="Self.paciente_pami" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacientes">
+              <PropertyRef Name="cod_paciente" />
+            </Principal>
+            <Dependent Role="paciente_pami">
+              <PropertyRef Name="cod_paciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pacientes_estuidos_codest_fk">
+          <End Role="estudios" Type="Self.estudios" Multiplicity="1" />
+          <End Role="pacientes_estudios" Type="Self.pacientes_estudios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estudios">
+              <PropertyRef Name="cod_estudio" />
+            </Principal>
+            <Dependent Role="pacientes_estudios">
+              <PropertyRef Name="cod_estudio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pacientes_estuidos_codpac_fk">
+          <End Role="pacientes" Type="Self.pacientes" Multiplicity="1" />
+          <End Role="pacientes_estudios" Type="Self.pacientes_estudios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacientes">
+              <PropertyRef Name="cod_paciente" />
+            </Principal>
+            <Dependent Role="pacientes_estudios">
+              <PropertyRef Name="cod_paciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dialisisModelStoreContainer">
+          <EntitySet Name="accesovascular" EntityType="Self.accesovascular" Schema="dialisis" store:Type="Tables" />
+          <EntitySet Name="estudios" EntityType="Self.estudios" Schema="dialisis" store:Type="Tables" />
+          <EntitySet Name="localizacionanastomosis" EntityType="Self.localizacionanastomosis" Schema="dialisis" store:Type="Tables" />
+          <EntitySet Name="motivobaja" EntityType="Self.motivobaja" Schema="dialisis" store:Type="Tables" />
+          <EntitySet Name="obrasocial" EntityType="Self.obrasocial" Schema="dialisis" store:Type="Tables" />
+          <EntitySet Name="observaciones" EntityType="Self.observaciones" Schema="dialisis" store:Type="Tables" />
+          <EntitySet Name="paciente_ioma" EntityType="Self.paciente_ioma" Schema="dialisis" store:Type="Tables" />
+          <EntitySet Name="paciente_pami" EntityType="Self.paciente_pami" Schema="dialisis" store:Type="Tables" />
+          <EntitySet Name="pacientes" EntityType="Self.pacientes" Schema="dialisis" store:Type="Tables" />
+          <EntitySet Name="pacientes_estudios" EntityType="Self.pacientes_estudios" Schema="dialisis" store:Type="Tables" />
+          <EntitySet Name="tipoanastomosis" EntityType="Self.tipoanastomosis" Schema="dialisis" store:Type="Tables" />
+          <EntitySet Name="vacuna_paciente" EntityType="Self.vacuna_paciente" Schema="dialisis" store:Type="Tables" />
+          <EntitySet Name="vacunas" EntityType="Self.vacunas" Schema="dialisis" store:Type="Tables" />
+          <AssociationSet Name="cod_paciente_fk" Association="Self.cod_paciente_fk">
+            <End Role="pacientes" EntitySet="pacientes" />
+            <End Role="paciente_ioma" EntitySet="paciente_ioma" />
+          </AssociationSet>
+          <AssociationSet Name="fk_anastomosis" Association="Self.fk_anastomosis">
+            <End Role="tipoanastomosis" EntitySet="tipoanastomosis" />
+            <End Role="pacientes" EntitySet="pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="fk_localizacion" Association="Self.fk_localizacion">
+            <End Role="localizacionanastomosis" EntitySet="localizacionanastomosis" />
+            <End Role="pacientes" EntitySet="pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="fk_motivobaja" Association="Self.fk_motivobaja">
+            <End Role="motivobaja" EntitySet="motivobaja" />
+            <End Role="pacientes" EntitySet="pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="fk_os" Association="Self.fk_os">
+            <End Role="obrasocial" EntitySet="obrasocial" />
+            <End Role="pacientes" EntitySet="pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="fk2_localizacion" Association="Self.fk2_localizacion">
+            <End Role="localizacionanastomosis" EntitySet="localizacionanastomosis" />
+            <End Role="accesovascular" EntitySet="accesovascular" />
+          </AssociationSet>
+          <AssociationSet Name="fk2_paciente" Association="Self.fk2_paciente">
+            <End Role="pacientes" EntitySet="pacientes" />
+            <End Role="accesovascular" EntitySet="accesovascular" />
+          </AssociationSet>
+          <AssociationSet Name="fk2_tipo" Association="Self.fk2_tipo">
+            <End Role="tipoanastomosis" EntitySet="tipoanastomosis" />
+            <End Role="accesovascular" EntitySet="accesovascular" />
+          </AssociationSet>
+          <AssociationSet Name="fk3_paciente" Association="Self.fk3_paciente">
+            <End Role="pacientes" EntitySet="pacientes" />
+            <End Role="vacuna_paciente" EntitySet="vacuna_paciente" />
+          </AssociationSet>
+          <AssociationSet Name="fk3_vacuna" Association="Self.fk3_vacuna">
+            <End Role="vacunas" EntitySet="vacunas" />
+            <End Role="vacuna_paciente" EntitySet="vacuna_paciente" />
+          </AssociationSet>
+          <AssociationSet Name="observaciones_codPaciente_fk" Association="Self.observaciones_codPaciente_fk">
+            <End Role="pacientes" EntitySet="pacientes" />
+            <End Role="observaciones" EntitySet="observaciones" />
+          </AssociationSet>
+          <AssociationSet Name="paciente_pami_fk1" Association="Self.paciente_pami_fk1">
+            <End Role="pacientes" EntitySet="pacientes" />
+            <End Role="paciente_pami" EntitySet="paciente_pami" />
+          </AssociationSet>
+          <AssociationSet Name="pacientes_estuidos_codest_fk" Association="Self.pacientes_estuidos_codest_fk">
+            <End Role="estudios" EntitySet="estudios" />
+            <End Role="pacientes_estudios" EntitySet="pacientes_estudios" />
+          </AssociationSet>
+          <AssociationSet Name="pacientes_estuidos_codpac_fk" Association="Self.pacientes_estuidos_codpac_fk">
+            <End Role="pacientes" EntitySet="pacientes" />
+            <End Role="pacientes_estudios" EntitySet="pacientes_estudios" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dialisisModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="accesovascular">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_localizacion" Type="Int32" />
+          <Property Name="id_tipo" Type="Int32" />
+          <Property Name="id_paciente" Type="Int32" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" />
+          <Property Name="otros" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="localizacionanastomosi" Relationship="Self.fk2_localizacion" FromRole="accesovascular" ToRole="localizacionanastomosis" />
+          <NavigationProperty Name="paciente" Relationship="Self.fk2_paciente" FromRole="accesovascular" ToRole="pacientes" />
+          <NavigationProperty Name="tipoanastomosi" Relationship="Self.fk2_tipo" FromRole="accesovascular" ToRole="tipoanastomosis" />
+        </EntityType>
+        <EntityType Name="estudio">
+          <Key>
+            <PropertyRef Name="cod_estudio" />
+          </Key>
+          <Property Name="cod_estudio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="desc_estudio" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="estado_estudio" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="pacientes_estudios" Relationship="Self.pacientes_estuidos_codest_fk" FromRole="estudios" ToRole="pacientes_estudios" />
+        </EntityType>
+        <EntityType Name="localizacionanastomosi">
+          <Key>
+            <PropertyRef Name="cod_localizacion" />
+          </Key>
+          <Property Name="cod_localizacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="accesovasculars" Relationship="Self.fk2_localizacion" FromRole="localizacionanastomosis" ToRole="accesovascular" />
+          <NavigationProperty Name="pacientes" Relationship="Self.fk_localizacion" FromRole="localizacionanastomosis" ToRole="pacientes" />
+        </EntityType>
+        <EntityType Name="motivobaja">
+          <Key>
+            <PropertyRef Name="idmotivobaja" />
+          </Key>
+          <Property Name="idmotivobaja" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="pacientes" Relationship="Self.fk_motivobaja" FromRole="motivobaja" ToRole="pacientes" />
+        </EntityType>
+        <EntityType Name="obrasocial">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="razonSocial" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="razonSocialAbrev" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="pacientes" Relationship="Self.fk_os" FromRole="obrasocial" ToRole="pacientes" />
+        </EntityType>
+        <EntityType Name="observacione">
+          <Key>
+            <PropertyRef Name="cod_paciente" />
+            <PropertyRef Name="fecha" />
+          </Key>
+          <Property Name="cod_paciente" Type="Int32" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="paciente" Relationship="Self.observaciones_codPaciente_fk" FromRole="observaciones" ToRole="pacientes" />
+        </EntityType>
+        <EntityType Name="paciente_ioma">
+          <Key>
+            <PropertyRef Name="nroreg" />
+            <PropertyRef Name="cod_paciente" />
+          </Key>
+          <Property Name="nroreg" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cod_paciente" Type="Int32" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" />
+          <Property Name="presentacion" Type="Int32" Nullable="false" />
+          <Property Name="internaciones" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="complicaciones" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="tranfuciones" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="accesovascular" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="serologia" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="cirugias" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="medicacion" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="estadoactual" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="pesoSeco" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="paciente" Relationship="Self.cod_paciente_fk" FromRole="paciente_ioma" ToRole="pacientes" />
+        </EntityType>
+        <EntityType Name="paciente_pami">
+          <Key>
+            <PropertyRef Name="nroreg" />
+            <PropertyRef Name="cod_paciente" />
+          </Key>
+          <Property Name="nroreg" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cod_paciente" Type="Int32" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" />
+          <Property Name="transfusiones" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="estudios" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="farmacologicos" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="internaciones" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="causa" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="dias" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="donde" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="vascular" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="semiologico_clinico" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="pesoSeco" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="diuresis" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="paciente" Relationship="Self.paciente_pami_fk1" FromRole="paciente_pami" ToRole="pacientes" />
+        </EntityType>
+        <EntityType Name="paciente">
+          <Key>
+            <PropertyRef Name="cod_paciente" />
+          </Key>
+          <Property Name="cod_paciente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellido" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="obraSocial" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="sexo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="diabetes" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="altura" Type="Decimal" />
+          <Property Name="fechaNacimiento" Type="DateTime" />
+          <Property Name="epo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="dosis" Type="Int32" />
+          <Property Name="estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="nroObraSocial" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fechaPrimer" Type="DateTime" />
+          <Property Name="etiologico" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="incucai" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="antecedente" Type="String" MaxLength="1073741823" FixedLength="false" Unicode="false" />
+          <Property Name="turno" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="fechacreacionav" Type="DateTime" />
+          <Property Name="fechaprimerusoav" Type="DateTime" />
+          <Property Name="cod_anastomosis" Type="Int32" />
+          <Property Name="cod_localizacionanastomosis" Type="Int32" />
+          <Property Name="cantavanteriores" Type="Int32" />
+          <Property Name="fechaprimervida" Type="DateTime" />
+          <Property Name="fechaprimeros" Type="DateTime" />
+          <Property Name="codmotivobaja" Type="Int32" />
+          <Property Name="descmotivobaja" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="fechabaja" Type="DateTime" />
+          <Property Name="id_os" Type="Int32" />
+          <Property Name="domicilio" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="localidad" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="telefono" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="grupo_sang" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="cirugias_prev" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="infeccionesUrinarias" Type="Boolean" />
+          <Property Name="diabetes_fechaDesde" Type="DateTime" />
+          <Property Name="hematuria" Type="Boolean" />
+          <Property Name="litasisRenal" Type="Boolean" />
+          <Property Name="nonturia" Type="Boolean" />
+          <Property Name="hipertension" Type="Boolean" />
+          <Property Name="hip_tiempoevol" Type="DateTime" />
+          <Property Name="hip_tratamiento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="accesovasculars" Relationship="Self.fk2_paciente" FromRole="pacientes" ToRole="accesovascular" />
+          <NavigationProperty Name="localizacionanastomosi" Relationship="Self.fk_localizacion" FromRole="pacientes" ToRole="localizacionanastomosis" />
+          <NavigationProperty Name="motivobaja" Relationship="Self.fk_motivobaja" FromRole="pacientes" ToRole="motivobaja" />
+          <NavigationProperty Name="obrasocial1" Relationship="Self.fk_os" FromRole="pacientes" ToRole="obrasocial" />
+          <NavigationProperty Name="observaciones" Relationship="Self.observaciones_codPaciente_fk" FromRole="pacientes" ToRole="observaciones" />
+          <NavigationProperty Name="paciente_ioma" Relationship="Self.cod_paciente_fk" FromRole="pacientes" ToRole="paciente_ioma" />
+          <NavigationProperty Name="paciente_pami" Relationship="Self.paciente_pami_fk1" FromRole="pacientes" ToRole="paciente_pami" />
+          <NavigationProperty Name="tipoanastomosi" Relationship="Self.fk_anastomosis" FromRole="pacientes" ToRole="tipoanastomosis" />
+          <NavigationProperty Name="vacuna_paciente" Relationship="Self.fk3_paciente" FromRole="pacientes" ToRole="vacuna_paciente" />
+          <NavigationProperty Name="pacientes_estudios" Relationship="Self.pacientes_estuidos_codpac_fk" FromRole="pacientes" ToRole="pacientes_estudios" />
+        </EntityType>
+        <EntityType Name="pacientes_estudios">
+          <Key>
+            <PropertyRef Name="cod_estudio" />
+            <PropertyRef Name="cod_paciente" />
+            <PropertyRef Name="fecha" />
+          </Key>
+          <Property Name="cod_estudio" Type="Int32" Nullable="false" />
+          <Property Name="cod_paciente" Type="Int32" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" />
+          <Property Name="resultado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="estudio" Relationship="Self.pacientes_estuidos_codest_fk" FromRole="pacientes_estudios" ToRole="estudios" />
+          <NavigationProperty Name="paciente" Relationship="Self.pacientes_estuidos_codpac_fk" FromRole="pacientes_estudios" ToRole="pacientes" />
+        </EntityType>
+        <EntityType Name="tipoanastomosi">
+          <Key>
+            <PropertyRef Name="cod_anastomosis" />
+          </Key>
+          <Property Name="cod_anastomosis" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="accesovasculars" Relationship="Self.fk2_tipo" FromRole="tipoanastomosis" ToRole="accesovascular" />
+          <NavigationProperty Name="pacientes" Relationship="Self.fk_anastomosis" FromRole="tipoanastomosis" ToRole="pacientes" />
+        </EntityType>
+        <EntityType Name="vacuna_paciente">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_vacuna" Type="Int32" Nullable="false" />
+          <Property Name="id_paciente" Type="Int32" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" />
+          <Property Name="otros" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="paciente" Relationship="Self.fk3_paciente" FromRole="vacuna_paciente" ToRole="pacientes" />
+          <NavigationProperty Name="vacuna" Relationship="Self.fk3_vacuna" FromRole="vacuna_paciente" ToRole="vacunas" />
+        </EntityType>
+        <EntityType Name="vacuna">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="estado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="vacuna_paciente" Relationship="Self.fk3_vacuna" FromRole="vacunas" ToRole="vacuna_paciente" />
+        </EntityType>
+        <Association Name="fk2_localizacion">
+          <End Role="localizacionanastomosis" Type="Self.localizacionanastomosi" Multiplicity="0..1" />
+          <End Role="accesovascular" Type="Self.accesovascular" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="localizacionanastomosis">
+              <PropertyRef Name="cod_localizacion" />
+            </Principal>
+            <Dependent Role="accesovascular">
+              <PropertyRef Name="id_localizacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk2_paciente">
+          <End Role="pacientes" Type="Self.paciente" Multiplicity="1" />
+          <End Role="accesovascular" Type="Self.accesovascular" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacientes">
+              <PropertyRef Name="cod_paciente" />
+            </Principal>
+            <Dependent Role="accesovascular">
+              <PropertyRef Name="id_paciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk2_tipo">
+          <End Role="tipoanastomosis" Type="Self.tipoanastomosi" Multiplicity="0..1" />
+          <End Role="accesovascular" Type="Self.accesovascular" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoanastomosis">
+              <PropertyRef Name="cod_anastomosis" />
+            </Principal>
+            <Dependent Role="accesovascular">
+              <PropertyRef Name="id_tipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pacientes_estuidos_codest_fk">
+          <End Role="estudios" Type="Self.estudio" Multiplicity="1" />
+          <End Role="pacientes_estudios" Type="Self.pacientes_estudios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estudios">
+              <PropertyRef Name="cod_estudio" />
+            </Principal>
+            <Dependent Role="pacientes_estudios">
+              <PropertyRef Name="cod_estudio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_localizacion">
+          <End Role="localizacionanastomosis" Type="Self.localizacionanastomosi" Multiplicity="0..1" />
+          <End Role="pacientes" Type="Self.paciente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="localizacionanastomosis">
+              <PropertyRef Name="cod_localizacion" />
+            </Principal>
+            <Dependent Role="pacientes">
+              <PropertyRef Name="cod_localizacionanastomosis" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_motivobaja">
+          <End Role="motivobaja" Type="Self.motivobaja" Multiplicity="0..1" />
+          <End Role="pacientes" Type="Self.paciente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="motivobaja">
+              <PropertyRef Name="idmotivobaja" />
+            </Principal>
+            <Dependent Role="pacientes">
+              <PropertyRef Name="codmotivobaja" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_os">
+          <End Role="obrasocial" Type="Self.obrasocial" Multiplicity="0..1" />
+          <End Role="pacientes" Type="Self.paciente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="obrasocial">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="pacientes">
+              <PropertyRef Name="id_os" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="observaciones_codPaciente_fk">
+          <End Role="pacientes" Type="Self.paciente" Multiplicity="1" />
+          <End Role="observaciones" Type="Self.observacione" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacientes">
+              <PropertyRef Name="cod_paciente" />
+            </Principal>
+            <Dependent Role="observaciones">
+              <PropertyRef Name="cod_paciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="cod_paciente_fk">
+          <End Role="pacientes" Type="Self.paciente" Multiplicity="1" />
+          <End Role="paciente_ioma" Type="Self.paciente_ioma" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacientes">
+              <PropertyRef Name="cod_paciente" />
+            </Principal>
+            <Dependent Role="paciente_ioma">
+              <PropertyRef Name="cod_paciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="paciente_pami_fk1">
+          <End Role="pacientes" Type="Self.paciente" Multiplicity="1" />
+          <End Role="paciente_pami" Type="Self.paciente_pami" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacientes">
+              <PropertyRef Name="cod_paciente" />
+            </Principal>
+            <Dependent Role="paciente_pami">
+              <PropertyRef Name="cod_paciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_anastomosis">
+          <End Role="tipoanastomosis" Type="Self.tipoanastomosi" Multiplicity="0..1" />
+          <End Role="pacientes" Type="Self.paciente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoanastomosis">
+              <PropertyRef Name="cod_anastomosis" />
+            </Principal>
+            <Dependent Role="pacientes">
+              <PropertyRef Name="cod_anastomosis" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk3_paciente">
+          <End Role="pacientes" Type="Self.paciente" Multiplicity="1" />
+          <End Role="vacuna_paciente" Type="Self.vacuna_paciente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacientes">
+              <PropertyRef Name="cod_paciente" />
+            </Principal>
+            <Dependent Role="vacuna_paciente">
+              <PropertyRef Name="id_paciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="pacientes_estuidos_codpac_fk">
+          <End Role="pacientes" Type="Self.paciente" Multiplicity="1" />
+          <End Role="pacientes_estudios" Type="Self.pacientes_estudios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="pacientes">
+              <PropertyRef Name="cod_paciente" />
+            </Principal>
+            <Dependent Role="pacientes_estudios">
+              <PropertyRef Name="cod_paciente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk3_vacuna">
+          <End Role="vacunas" Type="Self.vacuna" Multiplicity="1" />
+          <End Role="vacuna_paciente" Type="Self.vacuna_paciente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vacunas">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="vacuna_paciente">
+              <PropertyRef Name="id_vacuna" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dialisisEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="accesovasculars" EntityType="Self.accesovascular" />
+          <EntitySet Name="estudios" EntityType="Self.estudio" />
+          <EntitySet Name="localizacionanastomosis" EntityType="Self.localizacionanastomosi" />
+          <EntitySet Name="motivobajas" EntityType="Self.motivobaja" />
+          <EntitySet Name="obrasocials" EntityType="Self.obrasocial" />
+          <EntitySet Name="observaciones" EntityType="Self.observacione" />
+          <EntitySet Name="paciente_ioma" EntityType="Self.paciente_ioma" />
+          <EntitySet Name="paciente_pami" EntityType="Self.paciente_pami" />
+          <EntitySet Name="pacientes" EntityType="Self.paciente" />
+          <EntitySet Name="pacientes_estudios" EntityType="Self.pacientes_estudios" />
+          <EntitySet Name="tipoanastomosis" EntityType="Self.tipoanastomosi" />
+          <EntitySet Name="vacuna_paciente" EntityType="Self.vacuna_paciente" />
+          <EntitySet Name="vacunas" EntityType="Self.vacuna" />
+          <AssociationSet Name="fk2_localizacion" Association="Self.fk2_localizacion">
+            <End Role="localizacionanastomosis" EntitySet="localizacionanastomosis" />
+            <End Role="accesovascular" EntitySet="accesovasculars" />
+          </AssociationSet>
+          <AssociationSet Name="fk2_paciente" Association="Self.fk2_paciente">
+            <End Role="pacientes" EntitySet="pacientes" />
+            <End Role="accesovascular" EntitySet="accesovasculars" />
+          </AssociationSet>
+          <AssociationSet Name="fk2_tipo" Association="Self.fk2_tipo">
+            <End Role="tipoanastomosis" EntitySet="tipoanastomosis" />
+            <End Role="accesovascular" EntitySet="accesovasculars" />
+          </AssociationSet>
+          <AssociationSet Name="pacientes_estuidos_codest_fk" Association="Self.pacientes_estuidos_codest_fk">
+            <End Role="estudios" EntitySet="estudios" />
+            <End Role="pacientes_estudios" EntitySet="pacientes_estudios" />
+          </AssociationSet>
+          <AssociationSet Name="fk_localizacion" Association="Self.fk_localizacion">
+            <End Role="localizacionanastomosis" EntitySet="localizacionanastomosis" />
+            <End Role="pacientes" EntitySet="pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="fk_motivobaja" Association="Self.fk_motivobaja">
+            <End Role="motivobaja" EntitySet="motivobajas" />
+            <End Role="pacientes" EntitySet="pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="fk_os" Association="Self.fk_os">
+            <End Role="obrasocial" EntitySet="obrasocials" />
+            <End Role="pacientes" EntitySet="pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="observaciones_codPaciente_fk" Association="Self.observaciones_codPaciente_fk">
+            <End Role="pacientes" EntitySet="pacientes" />
+            <End Role="observaciones" EntitySet="observaciones" />
+          </AssociationSet>
+          <AssociationSet Name="cod_paciente_fk" Association="Self.cod_paciente_fk">
+            <End Role="pacientes" EntitySet="pacientes" />
+            <End Role="paciente_ioma" EntitySet="paciente_ioma" />
+          </AssociationSet>
+          <AssociationSet Name="paciente_pami_fk1" Association="Self.paciente_pami_fk1">
+            <End Role="pacientes" EntitySet="pacientes" />
+            <End Role="paciente_pami" EntitySet="paciente_pami" />
+          </AssociationSet>
+          <AssociationSet Name="fk_anastomosis" Association="Self.fk_anastomosis">
+            <End Role="tipoanastomosis" EntitySet="tipoanastomosis" />
+            <End Role="pacientes" EntitySet="pacientes" />
+          </AssociationSet>
+          <AssociationSet Name="fk3_paciente" Association="Self.fk3_paciente">
+            <End Role="pacientes" EntitySet="pacientes" />
+            <End Role="vacuna_paciente" EntitySet="vacuna_paciente" />
+          </AssociationSet>
+          <AssociationSet Name="pacientes_estuidos_codpac_fk" Association="Self.pacientes_estuidos_codpac_fk">
+            <End Role="pacientes" EntitySet="pacientes" />
+            <End Role="pacientes_estudios" EntitySet="pacientes_estudios" />
+          </AssociationSet>
+          <AssociationSet Name="fk3_vacuna" Association="Self.fk3_vacuna">
+            <End Role="vacunas" EntitySet="vacunas" />
+            <End Role="vacuna_paciente" EntitySet="vacuna_paciente" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dialisisModelStoreContainer" CdmEntityContainer="dialisisEntities">
+          <EntitySetMapping Name="accesovasculars">
+            <EntityTypeMapping TypeName="dialisisModel.accesovascular">
+              <MappingFragment StoreEntitySet="accesovascular">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_localizacion" ColumnName="id_localizacion" />
+                <ScalarProperty Name="id_tipo" ColumnName="id_tipo" />
+                <ScalarProperty Name="id_paciente" ColumnName="id_paciente" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="otros" ColumnName="otros" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="estudios">
+            <EntityTypeMapping TypeName="dialisisModel.estudio">
+              <MappingFragment StoreEntitySet="estudios">
+                <ScalarProperty Name="cod_estudio" ColumnName="cod_estudio" />
+                <ScalarProperty Name="desc_estudio" ColumnName="desc_estudio" />
+                <ScalarProperty Name="estado_estudio" ColumnName="estado_estudio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="localizacionanastomosis">
+            <EntityTypeMapping TypeName="dialisisModel.localizacionanastomosi">
+              <MappingFragment StoreEntitySet="localizacionanastomosis">
+                <ScalarProperty Name="cod_localizacion" ColumnName="cod_localizacion" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="motivobajas">
+            <EntityTypeMapping TypeName="dialisisModel.motivobaja">
+              <MappingFragment StoreEntitySet="motivobaja">
+                <ScalarProperty Name="idmotivobaja" ColumnName="idmotivobaja" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="obrasocials">
+            <EntityTypeMapping TypeName="dialisisModel.obrasocial">
+              <MappingFragment StoreEntitySet="obrasocial">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="razonSocial" ColumnName="razonSocial" />
+                <ScalarProperty Name="razonSocialAbrev" ColumnName="razonSocialAbrev" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="observaciones">
+            <EntityTypeMapping TypeName="dialisisModel.observacione">
+              <MappingFragment StoreEntitySet="observaciones">
+                <ScalarProperty Name="cod_paciente" ColumnName="cod_paciente" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="paciente_ioma">
+            <EntityTypeMapping TypeName="dialisisModel.paciente_ioma">
+              <MappingFragment StoreEntitySet="paciente_ioma">
+                <ScalarProperty Name="nroreg" ColumnName="nroreg" />
+                <ScalarProperty Name="cod_paciente" ColumnName="cod_paciente" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="presentacion" ColumnName="presentacion" />
+                <ScalarProperty Name="internaciones" ColumnName="internaciones" />
+                <ScalarProperty Name="complicaciones" ColumnName="complicaciones" />
+                <ScalarProperty Name="tranfuciones" ColumnName="tranfuciones" />
+                <ScalarProperty Name="accesovascular" ColumnName="accesovascular" />
+                <ScalarProperty Name="serologia" ColumnName="serologia" />
+                <ScalarProperty Name="cirugias" ColumnName="cirugias" />
+                <ScalarProperty Name="medicacion" ColumnName="medicacion" />
+                <ScalarProperty Name="estadoactual" ColumnName="estadoactual" />
+                <ScalarProperty Name="pesoSeco" ColumnName="pesoSeco" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="paciente_pami">
+            <EntityTypeMapping TypeName="dialisisModel.paciente_pami">
+              <MappingFragment StoreEntitySet="paciente_pami">
+                <ScalarProperty Name="nroreg" ColumnName="nroreg" />
+                <ScalarProperty Name="cod_paciente" ColumnName="cod_paciente" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="transfusiones" ColumnName="transfusiones" />
+                <ScalarProperty Name="estudios" ColumnName="estudios" />
+                <ScalarProperty Name="farmacologicos" ColumnName="farmacologicos" />
+                <ScalarProperty Name="internaciones" ColumnName="internaciones" />
+                <ScalarProperty Name="causa" ColumnName="causa" />
+                <ScalarProperty Name="dias" ColumnName="dias" />
+                <ScalarProperty Name="donde" ColumnName="donde" />
+                <ScalarProperty Name="vascular" ColumnName="vascular" />
+                <ScalarProperty Name="semiologico_clinico" ColumnName="semiologico_clinico" />
+                <ScalarProperty Name="pesoSeco" ColumnName="pesoSeco" />
+                <ScalarProperty Name="diuresis" ColumnName="diuresis" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pacientes">
+            <EntityTypeMapping TypeName="dialisisModel.paciente">
+              <MappingFragment StoreEntitySet="pacientes">
+                <ScalarProperty Name="cod_paciente" ColumnName="cod_paciente" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="obraSocial" ColumnName="obraSocial" />
+                <ScalarProperty Name="sexo" ColumnName="sexo" />
+                <ScalarProperty Name="diabetes" ColumnName="diabetes" />
+                <ScalarProperty Name="altura" ColumnName="altura" />
+                <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+                <ScalarProperty Name="epo" ColumnName="epo" />
+                <ScalarProperty Name="dosis" ColumnName="dosis" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="nroObraSocial" ColumnName="nroObraSocial" />
+                <ScalarProperty Name="fechaPrimer" ColumnName="fechaPrimer" />
+                <ScalarProperty Name="etiologico" ColumnName="etiologico" />
+                <ScalarProperty Name="incucai" ColumnName="incucai" />
+                <ScalarProperty Name="antecedente" ColumnName="antecedente" />
+                <ScalarProperty Name="turno" ColumnName="turno" />
+                <ScalarProperty Name="fechacreacionav" ColumnName="fechacreacionav" />
+                <ScalarProperty Name="fechaprimerusoav" ColumnName="fechaprimerusoav" />
+                <ScalarProperty Name="cod_anastomosis" ColumnName="cod_anastomosis" />
+                <ScalarProperty Name="cod_localizacionanastomosis" ColumnName="cod_localizacionanastomosis" />
+                <ScalarProperty Name="cantavanteriores" ColumnName="cantavanteriores" />
+                <ScalarProperty Name="fechaprimervida" ColumnName="fechaprimervida" />
+                <ScalarProperty Name="fechaprimeros" ColumnName="fechaprimeros" />
+                <ScalarProperty Name="codmotivobaja" ColumnName="codmotivobaja" />
+                <ScalarProperty Name="descmotivobaja" ColumnName="descmotivobaja" />
+                <ScalarProperty Name="fechabaja" ColumnName="fechabaja" />
+                <ScalarProperty Name="id_os" ColumnName="id_os" />
+                <ScalarProperty Name="domicilio" ColumnName="domicilio" />
+                <ScalarProperty Name="localidad" ColumnName="localidad" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="grupo_sang" ColumnName="grupo_sang" />
+                <ScalarProperty Name="cirugias_prev" ColumnName="cirugias_prev" />
+                <ScalarProperty Name="infeccionesUrinarias" ColumnName="infeccionesUrinarias" />
+                <ScalarProperty Name="diabetes_fechaDesde" ColumnName="diabetes_fechaDesde" />
+                <ScalarProperty Name="hematuria" ColumnName="hematuria" />
+                <ScalarProperty Name="litasisRenal" ColumnName="litasisRenal" />
+                <ScalarProperty Name="nonturia" ColumnName="nonturia" />
+                <ScalarProperty Name="hipertension" ColumnName="hipertension" />
+                <ScalarProperty Name="hip_tiempoevol" ColumnName="hip_tiempoevol" />
+                <ScalarProperty Name="hip_tratamiento" ColumnName="hip_tratamiento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pacientes_estudios">
+            <EntityTypeMapping TypeName="dialisisModel.pacientes_estudios">
+              <MappingFragment StoreEntitySet="pacientes_estudios">
+                <ScalarProperty Name="cod_estudio" ColumnName="cod_estudio" />
+                <ScalarProperty Name="cod_paciente" ColumnName="cod_paciente" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="resultado" ColumnName="resultado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipoanastomosis">
+            <EntityTypeMapping TypeName="dialisisModel.tipoanastomosi">
+              <MappingFragment StoreEntitySet="tipoanastomosis">
+                <ScalarProperty Name="cod_anastomosis" ColumnName="cod_anastomosis" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vacuna_paciente">
+            <EntityTypeMapping TypeName="dialisisModel.vacuna_paciente">
+              <MappingFragment StoreEntitySet="vacuna_paciente">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_vacuna" ColumnName="id_vacuna" />
+                <ScalarProperty Name="id_paciente" ColumnName="id_paciente" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="otros" ColumnName="otros" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vacunas">
+            <EntityTypeMapping TypeName="dialisisModel.vacuna">
+              <MappingFragment StoreEntitySet="vacunas">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
