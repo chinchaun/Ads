@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Ads.Service.Contracts;
 using Ads.Model;
 using Ads.DataAcces.Repositories;
@@ -18,7 +14,7 @@ namespace Ads.Service.Implementations
         }
 
         public paciente GetById(int id) {
-            return base.RepositoryInstance.Query().Where(x => x.estado == "Habilitado").FirstOrDefault();
+            return base.RepositoryInstance.Query().Where(x => x.cod_paciente == id).FirstOrDefault();
         }
 
     }

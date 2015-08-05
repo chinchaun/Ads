@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
@@ -19,12 +17,15 @@ namespace Ads.UI.Controllers
         [HttpGet]
 
         public HttpResponseMessage Get() {
-            var message = new HttpResponseMessage(HttpStatusCode.InternalServerError);
+          var message = new HttpResponseMessage(HttpStatusCode.InternalServerError);
 
             try
-            {              
-                message = Request.CreateResponse<paciente>(HttpStatusCode.OK,
-                base.BusinessInstance.GetById(1));
+            {
+                var p = new paciente();
+                var rta = base.BusinessInstance.GetById(1);
+                p.nombre = rta.nombre;
+                p.Apellido = rta.Apellido;
+                message = Request.CreateResponse<paciente>(HttpStatusCode.OK,p);
             }
             catch (Exception ex) //TODO: Change that with specific exception
             {
