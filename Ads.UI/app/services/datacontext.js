@@ -2,9 +2,9 @@
     'use strict';
 
     var serviceId = 'datacontext';
-    angular.module('app').factory(serviceId, ['common', '$http', datacontext]);
+    angular.module('app').factory(serviceId, ['common', '$http', 'pacienteService', datacontext]);
 
-    function datacontext(common, $http) {
+    function datacontext(common, $http, pacienteService) {
         var $q = common.$q;
 
         var service = {
@@ -27,13 +27,14 @@
             //    { firstName: 'Haley', lastName: 'Guthrie', age: 35, location: 'Wyoming' }
             //];
             //return $q.when(people);
-            var url = 'api/Paciente';
-            return $http.get(url)
-                       .success(function (response) {
-                           if (response) {
-                               return response;
-                           }
-                       });
+            //var url = 'api/Paciente';
+            //return $http.get(url)
+            //           .success(function (response) {
+            //               if (response) {
+            //                   return response;
+            //               }
+            //           });
+            return pacienteService.getAll();
         }
     }
 })();

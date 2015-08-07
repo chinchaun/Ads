@@ -52,16 +52,19 @@ namespace Ads.UI.Infrastructure
         private static void RegisterRepositories() {
             unityContainer.RegisterType<IRepository<Base> ,RepositoryBase<Base>>(new InjectionConstructor(unityContainer.Resolve<IContext>()));
             unityContainer.RegisterType<IRepository<Ads.Model.paciente>, RepositoryBase<Ads.Model.paciente>>(new InjectionConstructor(unityContainer.Resolve<IContext>()));
+            unityContainer.RegisterType<IRepository<Ads.Model.estudio>, RepositoryBase<Ads.Model.estudio>>(new InjectionConstructor(unityContainer.Resolve<IContext>()));
 
         }
 
         private static void RegisterServices() { 
             //unityContainer.RegisterType<IBaseService, BaseService>();
             unityContainer.RegisterType<IPacienteService, PacienteService>();
+            unityContainer.RegisterType<IEstudioService, EstudioService>();
         }
 
         private static void RegisterBusiness() {
             unityContainer.RegisterType<IPacienteBusiness, PacienteBusiness>(new InjectionConstructor(unityContainer.Resolve<IPacienteService>()));
+            unityContainer.RegisterType<IEstudioBusiness, EstudioBusiness>(new InjectionConstructor(unityContainer.Resolve<IEstudioService>()));
         }
 
 

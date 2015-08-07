@@ -9,9 +9,8 @@
 
 namespace Ads.Model
 {
-    using System;
     using System.Collections.Generic;
-    
+
     public partial class obrasocial
     {
         public obrasocial()

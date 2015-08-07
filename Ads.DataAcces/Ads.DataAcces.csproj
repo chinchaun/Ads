@@ -42,6 +42,7 @@
     <Compile Include="IContext.cs" />
     <Compile Include="IUnitOfWork.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\EstudioRepository.cs" />
     <Compile Include="Repositories\PacienteRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\RepositoryBase.cs" />

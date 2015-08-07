@@ -56,7 +56,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstracts\IEstudioBusiness.cs" />
     <Compile Include="Abstracts\IPacienteBusiness.cs" />
+    <Compile Include="EstudioBusiness.cs" />
     <Compile Include="PacienteBusiness.cs" />
     <Compile Include="BusinessBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

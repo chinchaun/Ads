@@ -121,6 +121,7 @@
     <Content Include="app\layout\widgetheader.html" />
     <Content Include="app\services\datacontext.js" />
     <Content Include="app\services\directives.js" />
+    <Content Include="app\services\estudioService.js" />
     <Content Include="app\services\pacienteService.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -199,6 +200,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityWebApiActivator.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\EstudioController.cs" />
     <Compile Include="Controllers\PacienteController.cs" />
     <Compile Include="Controllers\ApiController.cs" />
     <Compile Include="Global.asax.cs">
