@@ -24,12 +24,14 @@ namespace Ads.DataAcces.Repositories
 
         public bool Add(T entity)
         {
-            throw new NotImplementedException();
+            dbContext.Add(entity);
+            return true;
         }
 
-        public bool SaveOrUpdate(T Entity)
+        public bool SaveOrUpdate(T entity)
         {
-            throw new NotImplementedException();
+            dbContext.Add(entity);
+            return true;
         }
 
         public bool Delete(T entity)

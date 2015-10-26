@@ -53,6 +53,8 @@
     </Compile>
     <Compile Include="Base.cs" />
     <Compile Include="BaseModel.cs" />
+    <Compile Include="DTO\EstudioDTO.cs" />
+    <Compile Include="DTO\PacienteDTO.cs" />
     <Compile Include="estudio.cs">
       <DependentUpon>ModelDialisis.tt</DependentUpon>
     </Compile>

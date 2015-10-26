@@ -18,8 +18,7 @@
 
     // Define the routes 
     function getRoutes() {
-        return [
-            {
+        return [{
                 url: '/',
                 config: {
                     templateUrl: 'app/dashboard/dashboard.html',
@@ -29,7 +28,8 @@
                         content: '<i class="fa fa-dashboard"></i> Dashboard'
                     }
                 }
-            }, {
+            },
+            {
                 url: '/admin',
                 config: {
                     title: 'admin',
@@ -37,6 +37,28 @@
                     settings: {
                         nav: 2,
                         content: '<i class="fa fa-lock"></i> Admin'
+                    }
+                }
+            },
+            {
+                url: '/estudios',
+                config: {
+                    title: 'estudios',
+                    templateUrl: 'app/estudios/estudios.html',
+                    settings: {
+                        nav: 3,
+                        content: '<i class="fa fa-dashboard"></i> Estudios'
+                    }
+                }
+            },
+            {
+                url: '/pacientes',
+                config: {
+                    title: 'pacientes',
+                    templateUrl: 'app/pacientes/pacientes.html',
+                    settings: {
+                        nav: 4,
+                        content: '<i class="fa fa-dashboard"></i> Pacientes'
                     }
                 }
             }

@@ -10,6 +10,9 @@
 
         var service = {
             getAll: getAll,
+            getById: getById,
+            update: update,
+            save: save
         };
 
         return service;
@@ -26,6 +29,47 @@
                         });
 
         };
+
+        function getById(id) {
+            var data = $.param({
+                id: id
+            });
+            var url = 'api/Estudio/GetById?' + data;
+
+            return $http.get(url)
+                        .success(function (response) {
+                            if (response) {
+                                return response;
+                            }
+                        });
+
+        };
+
+        function update(estudio) {
+
+            var url = 'api/Estudio/Update';
+            return $http.put(url, estudio)
+                        .success(function (response) {
+                            if (response) {
+                                return response;
+                            };
+                        });
+
+        };
+
+        function save(estudio) {
+
+            var url = 'api/Estudio/Save';
+            return $http.post(url, estudio)
+                        .success(function (response) {
+                            if (response) {
+                                return response;
+                            };
+                        });
+
+        };
+
+
 
     };
 

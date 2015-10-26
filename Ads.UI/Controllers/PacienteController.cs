@@ -5,6 +5,7 @@ using System.Web.Http;
 using Ads.Business.Abstracts;
 using Ads.Model;
 using System.Collections.Generic;
+using Ads.Model.DTO;
 
 namespace Ads.UI.Controllers
 {
@@ -20,16 +21,60 @@ namespace Ads.UI.Controllers
 
             try
             {
-                var pacientesList = new List<paciente>();
-                var paciente = new paciente();
-                var rta = base.BusinessInstance.GetById(1);
-                paciente.nombre = rta.nombre;
-                paciente.Apellido = rta.Apellido;
-                paciente.fechaNacimiento = rta.fechaNacimiento;
-                paciente.nroObraSocial = rta.nroObraSocial;
-                pacientesList.Add(paciente);
+                var pacientesList = base.BusinessInstance.GetAll();
+                message = Request.CreateResponse<IList<PacienteDTO>>(HttpStatusCode.OK, pacientesList);
+            }
+            catch (Exception ex) //TODO: Change that with specific exception
+            {
+                message = Request.CreateResponse<Exception>(HttpStatusCode.InternalServerError, ex);
+            }
+            return (message);
+        }
 
-                message = Request.CreateResponse<List<paciente>>(HttpStatusCode.OK, pacientesList);
+        public HttpResponseMessage GetById(int id)
+        {
+            var message = new HttpResponseMessage(HttpStatusCode.InternalServerError);
+
+            try
+            {
+                var paciente = base.BusinessInstance.GetById(id);
+                message = Request.CreateResponse<PacienteDTO>(HttpStatusCode.OK, paciente);
+            }
+            catch (Exception ex) //TODO: Change that with specific exception
+            {
+                message = Request.CreateResponse<Exception>(HttpStatusCode.InternalServerError, ex);
+            }
+            return (message);
+        }
+
+        [HttpPost]
+        public HttpResponseMessage Save([FromBody]Model.paciente paciente)
+        {
+            var message = new HttpResponseMessage(HttpStatusCode.InternalServerError);
+
+            try
+            {
+                base.BusinessInstance.Add(paciente);
+
+                message = Request.CreateResponse(HttpStatusCode.OK);
+            }
+            catch (Exception ex) //TODO: Change that with specific exception
+            {
+                message = Request.CreateResponse<Exception>(HttpStatusCode.InternalServerError, ex);
+            }
+            return (message);
+        }
+
+        [HttpPut]
+        public HttpResponseMessage Update([FromBody]Model.paciente paciente)
+        {
+            var message = new HttpResponseMessage(HttpStatusCode.InternalServerError);
+
+            try
+            {
+                base.BusinessInstance.SaveOrUpdate(paciente);
+
+                message = Request.CreateResponse(HttpStatusCode.OK);
             }
             catch (Exception ex) //TODO: Change that with specific exception
             {

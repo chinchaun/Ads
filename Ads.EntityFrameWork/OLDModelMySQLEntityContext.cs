@@ -55,7 +55,8 @@ namespace Ads.EntityFrameWork
 
         public void Add<T>(T entity) where T : class
         {
-            throw new NotImplementedException();
+            base.Set<T>().Add(entity);
+            base.SaveChanges();
         }
 
         public void Delete<T>(T entity) where T : class
@@ -65,7 +66,7 @@ namespace Ads.EntityFrameWork
 
         public void SaveOrUpdate()
         {
-            throw new NotImplementedException();
+            base.SaveChanges();
         }
 
         public IQueryable<T> Query<T>() where T : class
