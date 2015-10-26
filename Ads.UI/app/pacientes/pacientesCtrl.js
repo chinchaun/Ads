@@ -61,19 +61,19 @@
         };
 
         function guardarPaciente() {
-            console.log(vm.currentPaciente);
-            //if (vm.isModification) {
-            //    return pacienteService.update(vm.currentPaciente)
-            //    .then(function (data) {
-            //        console.log(data);
-            //    });
-            //}
-            //else {
-            //    return pacienteService.save(vm.currentPaciente)
-            //    .then(function (data) {
-            //        console.log(data);
-            //    });
-            //};
+           // console.log(vm.currentPaciente);
+            if (vm.isModification) {
+                return pacienteService.update(vm.currentPaciente)
+                .then(function (data) {
+                    console.log(data);
+                });
+            }
+            else {
+                return pacienteService.save(vm.currentPaciente)
+                .then(function (data) {
+                    console.log(data);
+                });
+            };
         };
 
         function selectChange(paciente) {
